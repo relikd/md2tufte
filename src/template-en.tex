@@ -1,0 +1,97 @@
+\documentclass[12pt,american,nohyper,a4paper,sfsidenotes]{tufte-handout}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{microtype}
+
+\setmainfont[
+Path           = fonts/,
+%Scale          = 0.95,
+BoldFont       = {Cochineal-Bold},
+ItalicFont     = {Cochineal-Italic},
+BoldItalicFont = {Cochineal-BoldItalic}
+]{Cochineal-Roman}
+\setsansfont[
+Path           = fonts/,
+BoldFont       = {Roboto-Bold},
+ItalicFont     = {Roboto-Italic},
+BoldItalicFont = {Roboto-BoldItalic}
+]{Roboto-Regular}
+\setsansfont[
+Path           = fonts/,
+BoldFont       = {iosevka-ss04-bold},
+ItalicFont     = {iosevka-ss04-italic},
+BoldItalicFont = {iosevka-ss04-bolditalic}
+]{iosevka-ss04-regular}
+
+\makeatletter
+
+\usepackage{etoolbox}
+\usepackage{caption}
+
+\setcounter{secnumdepth}{2}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\sffamily\Large}{\thesection.}{0.2em}{}
+\titleformat{\subsection}
+  {\sffamily\normalsize}{\thesubsection.}{0.2em}{}
+
+\titlespacing{\section}{0pt}{*6}{*1}
+\titlespacing{\subsection}{0pt}{*3}{*0.5}
+
+\usepackage[absolute]{textpos}
+
+\urlstyle{same}
+
+
+\setcounter{secnumdepth}{0}
+\def\tightlist{}
+\renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+\renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+
+
+\setlength{\parindent}{0pt}
+
+\AtBeginDocument{
+  \def\labelitemi{\normalsize\normalfont\bfseries{--}}
+}
+
+\makeatother
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=american]{english}
+\begin{document}
+\noindent{\linespread{1.2}\LARGE\textsf{\mbox{<#_TITLE_#>}}}\par
+\noindent{\linespread{1.2}\textsf{\mbox{<#_SUBTITLE_#>}\hspace{\fill}<#_VERSION_#>}}\par
+\bigskip
+\setstretch{1}
+\normalsize
+
+\fancyhead[RE,RO]{}
+\fancyfoot[RE,RO]{\smallcaps{\newlinetospace{}}\quad\thepage}% book title 
+
+\begin{textblock}{15}(-0.56,0.46)
+\begin{flushright}
+
+\includegraphics[width=3cm]{img/logo.pdf}
+ 
+\bigskip
+
+\textsf{
+\textbf{<#_AUTHOR_#>}\\
+github.com/relikd\\
++1\,201\,555-0142
+}
+\end{flushright}
+\end{textblock}
+\setlength{\parindent}{0pt}
+
+<#_BODY_#>
+
+\end{document}

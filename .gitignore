@@ -1,0 +1,10 @@
+.DS_Store
+/*.tex
+
+# intermediate files
+/*.aux
+/*.log
+/*.out
+/*.toc
+/*.synctex(busy)
+/*.synctex.gz

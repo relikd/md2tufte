@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>md2tufte</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="tufte.css"/>
+  <link rel="stylesheet" href="custom.css"/>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="#features">Features</a>
+<a href="#requirements">Requirements</a>
+<a href="#usage">Usage</a>
+
+  </div>
+  <section>
+    <p><small>This document is maintained by some wizards in a basement. For printing, use the <a href="../en-example.pdf">PDF version of this document</a>.</small></p>
+  </section>
+  
+<article>
+<section>
+<h1 id="title">md2tufte</h1>
+<h2>Exemplary overview document</h2>
+<p><em>relikd</em> (v20210704)</p>
+<p>This document is an exemplary usage of this tool. Of course it will look better with actual documents when the content is longer and the lines break more nicely.</p>
+</section><section><h2 id="features">Features</h2>
+<p>This document was created with <a href="https://github.com/relikd/md2tufte"><code>md2tufte</code></a> – a tool which takes a markdown file as input and returns html and pdf as output. It supports the usual markdown syntax and is augmented with a substitution header. To place something in the margin, use the <code>@ ==</code> syntax.</p>
+<p>For further examples, refer to the README file. You can use in-document references.<span class="marginnote">e.<span style="white-space:nowrap"> </span>g., see section <a href="#requirements">Requirements</a>. </span></p>
+<p>As you see, you can put about anything in the margin. If you want to control that something should be only visible in the pdf version of the document but not in the html version, use the <code>@ =latex=</code> syntax. Currently there is no inverse, i.<span style="white-space:nowrap"> </span>e., <code>@ =html=</code> will <strong>not</strong> work.</p>
+</section><section><h2 id="requirements">Requirements</h2>
+<p><span class="marginnote"><img src="img/example.png" /> You can use margin images!</span></p>
+<ul>
+<li><a href="https://pandoc.org/installing.html">pandoc</a></li>
+<li><a href="https://www.python.org/download/releases/3.0/">Python 3</a></li>
+<li>xelatex</li>
+</ul>
+</section><section><h2 id="usage">Usage</h2>
+<dl>
+<dt>
+make all
+</dt>
+<dd>
+builds all *.markdown files in the directory.
+</dd>
+<dt>
+make file.html
+</dt>
+<dd>
+just build the html version of a specific file.
+</dd>
+<dt>
+make file.pdf
+</dt>
+<dd>
+equivalently build pdf.
+</dd>
+<dt>
+make file.tex
+</dt>
+<dd>
+build the intermediate file only.
+</dd>
+</dl>
+
+</section>
+</article> 
+<button class= "button" onclick="window.scrollTo(0, 0)">back to top</button>
+</body>
+</html>
