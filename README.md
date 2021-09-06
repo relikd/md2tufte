@@ -6,6 +6,7 @@ To build all files run `make all` (or `make file.html`, `make file.tex`, `make f
 
 Look at the [example pdf](https://relikd.github.io/md2tufte/en-example.pdf) and [example html](https://relikd.github.io/md2tufte/bin/en-example.html) output built from the [markdown input](en-example.markdown) file.
 
+
 ## Requirements
 
 You'll need:
@@ -21,14 +22,14 @@ Included in the package:
 - Font [Roboto](https://github.com/googlefonts/roboto), by Christian Robertson
 - Font [Iosevka](https://github.com/be5invis/Iosevka), by Belleve Invis
 
+
 ## Usage
 
 The format is mostly markdown, except for these modifications:
 
 - Use `\,` to insert a non-breaking thin-space.
 
-- To insert a normal-width non-breaking space use the actual character.  
-  on macOS: `Alt + Space`, on Linux: `???`, on Windows: `???`.
+- To insert a normal-width non-breaking space use `\~` or the actual character (macOS: `Alt + Space`, Linux: `???`, Windows: `???`).
 
 - Use `\newpage` to start a new page in latex (which is ignored in html)
 
@@ -45,13 +46,13 @@ The format is mostly markdown, except for these modifications:
 
 - You can add a reference to a title by adding `{#label}` after the title, e.g., `## Title {#title}`
   - other than that, all titles have implicit labels where spaces are replaced with dashes `My Title` becomes `my-title`
-  - btw., you could also add classes this way `{.fullwidth}`
+  - btw., you can also add classes this way `{.fullwidth}`
 
 - The file prefix, e.g. `en`, is the template file identifier. This can be used for multi-language generation or different types of webpages.
 
 - Use `@== content ==@` to place something in the border margin.
   - multi-line content is allowed.
-  - to show something in the pdf version only, use `@=latex=` as the prefix. If set, the content will not appear on the html version.
+  - the prefix `@=latex=` will display something in the pdf but not in html. (there is no equivalent for html-only)
 
 
 ## Limitations
