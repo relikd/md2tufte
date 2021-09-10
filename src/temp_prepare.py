@@ -2,13 +2,12 @@
 import os
 import sys
 
-if len(sys.argv) != 4:
-    print('  usage: script {template-file} {md-file} {destination-file}')
+if len(sys.argv) != 3:
+    print('  usage: script {template-file} {md-file}')
     exit(1)
 
 temp = sys.argv[1]
 src = sys.argv[2]
-dest = sys.argv[3]
 if not os.path.isfile(temp) or not os.path.isfile(src):
     print('Error: file does not exist')
     exit(1)
@@ -57,5 +56,4 @@ with open(src, 'r') as f:
 with open(src + '.tmp', 'w') as f:
     f.write(f_md)
 
-with open(dest, 'w') as f:
-    f.write(f_temp)
+print(f_temp)

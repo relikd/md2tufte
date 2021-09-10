@@ -21,19 +21,36 @@ Included in the package:
 - Font [Cochineal](https://www.ctan.org/pkg/cochineal), by 	Michael Sharpe
 - Font [Roboto](https://github.com/googlefonts/roboto), by Christian Robertson
 - Font [Iosevka](https://github.com/be5invis/Iosevka), by Belleve Invis
+- Font [Piazzolla](https://github.com/huertatipografica/piazzolla), by Juan Pablo del Peral
 
 
 ## Usage
 
 The format is mostly markdown, except for these modifications:
 
-- Use `\,` to insert a non-breaking thin-space.
+- Whitespace
+  - Use `\,` to insert a non-breaking thin-space.
+  - Use `\~` or the actual character to insert a normal-width non-breaking space (unicode nbsp in macOS: `Alt + Space`, Linux: `???`, Windows: `???`).
+  - Use `\newpage` to start a new page in latex (which is ignored in html)
 
-- To insert a normal-width non-breaking space use `\~` or the actual character (macOS: `Alt + Space`, Linux: `???`, Windows: `???`).
+- Use `@== CONTENT ==@` to create a margin element; Text or image or whatever.
+  - multi-line content allowed.
+  - the prefix `@=latex=` will display its content in pdf only. There is no html-prefix equivalent.
 
-- Use `\newpage` to start a new page in latex (which is ignored in html)
+- Use `####` to create paragraph like sections. These sections are displayed in the margin. Like an index for quick reference. In mobile html they are normal `h4` headings.
+  - Of course `#`, `##`, and `###` are translated to `h1` to `h3` headings
 
-- It supports the latex `\begin{description}` environment by using the html equivalent `<dl><dt><dd>`
+- You can add a reference-id to a title by adding `{#label}` after the title, e.g., `## Title {#title}`
+  - other than that, all titles have implicit labels where spaces are replaced with dashes `My Title` becomes `my-title`
+  - btw., you can also add classes this way `{.fullwidth}`
+  - Use normal markdown syntax `[name](#ref)` to link to a section (works in both, html and latex)
+
+- Use `<dl><dt><dd>` to create definition lists. This will be translated to a latex `\begin{description}` environment.
+
+
+## Templating
+
+- The file prefix, e.g. `en`, is the template file identifier. This can be used for multi-language generation or different types of webpages.
 
 - The header always begins and ends with a line of at least five colons `:::::`
   - Each line inside the header has the format `KEY: VALUE`
@@ -44,37 +61,7 @@ The format is mostly markdown, except for these modifications:
     - Each ML-variable begins with ` KEY : @@@ ` and ends with a line of just three at-signs (regex: `^@@@$`). No whitespace allowed.
     - multi-line variables may contain a line of colons (the header terminator is ignored here)
 
-- You can add a reference to a title by adding `{#label}` after the title, e.g., `## Title {#title}`
-  - other than that, all titles have implicit labels where spaces are replaced with dashes `My Title` becomes `my-title`
-  - btw., you can also add classes this way `{.fullwidth}`
-
-- The file prefix, e.g. `en`, is the template file identifier. This can be used for multi-language generation or different types of webpages.
-
-- Use `@== content ==@` to place something in the border margin.
-  - multi-line content is allowed.
-  - the prefix `@=latex=` will display something in the pdf but not in html. (there is no equivalent for html-only)
-
 
 ## Limitations
 
 This script has not been tested on Linux or Windows. However, Linux should work fine ... in theory.
-
-### Known Issues
-
-__#1__: If using URLs ins the margin, adding a newline before the href will add an unwanted space. e.g.:
-
-```
-@==
-[multi line, super long name desc!](multi-line-url)
-==@
-```
-
-will become:
-
-```
-|  multi line,
-| super long
-| name desc!
-```
-
-Fix for __#1__: place the beginning of the url on the same line `@==[]()...` (does not have to be closed on the same line)

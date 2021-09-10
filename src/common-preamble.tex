@@ -1,0 +1,75 @@
+\usepackage{fontspec}
+\usepackage{babel}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\pagestyle{fancy}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{microtype}
+
+\setmainfont[
+  Path           = fonts/,
+  %Scale          = 0.95,
+  BoldFont       = {Cochineal-Bold},
+  ItalicFont     = {Cochineal-Italic},
+  BoldItalicFont = {Cochineal-BoldItalic}
+]{Cochineal-Roman}
+\setsansfont[
+  Path           = fonts/,
+  BoldFont       = {Roboto-Bold},
+  ItalicFont     = {Roboto-Italic},
+  BoldItalicFont = {Roboto-BoldItalic}
+]{Roboto-Regular}
+\setmonofont[
+  Path           = fonts/,
+  BoldFont       = {iosevka-ss04-bold},
+  ItalicFont     = {iosevka-ss04-italic},
+  BoldItalicFont = {iosevka-ss04-bolditalic}
+]{iosevka-ss04-regular}
+
+\makeatletter
+
+\usepackage{etoolbox}
+\usepackage{caption}
+
+\setcounter{secnumdepth}{2}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\sffamily\Large}{\thesection.}{0.2em}{}
+\titleformat{\subsection}
+  {\sffamily\normalsize}{\thesubsection.}{0.2em}{}
+
+\titlespacing{\section}{0pt}{*6}{*1}
+\titlespacing{\subsection}{0pt}{*3}{*0.5}
+
+\usepackage[absolute]{textpos}
+
+\urlstyle{same}
+
+\setcounter{secnumdepth}{0}
+\def\tightlist{}
+\renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+\renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+
+\newcommand{\marginsection}[1]{
+  \if@noskipsec\leavevmode\fi \par
+  \paragraph{}
+  \def\@svsechd{\marginnote{#1}}\@xsect{0pt}}
+
+\setlength{\parindent}{0pt}
+
+\AtBeginDocument{
+  \def\labelitemi{\normalsize\normalfont\bfseries{--}}
+}
+
+\makeatother

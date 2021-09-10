@@ -1,42 +1,88 @@
-.button {
-    border: 2px solid #ff5050;
-    color: #ff5050;
-    background-color: #fff;
-    padding: 16px 32px;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 4px 2px;
-    cursor: pointer;
+@font-face { font-family: 'Roboto'; src: url(fonts/Roboto-Regular.otf); }  /* only h1-6, thus no italic */
+@font-face { font-family: 'Piazzolla'; src: url(fonts/Piazzolla.ttf); }
+@font-face { font-family: 'Piazzolla'; font-style: italic; src: url(fonts/Piazzolla-Italic.ttf); }
+
+body {
+  font-family: Piazzolla, Helvetica Neue, sans-serif;
+  font-weight: 400;
+}
+b,strong { font-weight: 600; }
+h1,h2,h3,h4,h5,h6,.topnav {
+  font-family: Roboto, Helvetica Neue, sans-serif;
+}
+#subtitle { margin-top: inherit; }
+@media (prefers-color-scheme: dark) {
+    body { background: #17110E; color: #DDD; font-weight: 500; }
+    b, strong { font-weight: 600; color: #FFF; }
 }
 
-.button:hover {
-    color: #fff;
-    background-color: #ff5050;    
-}
-
+/* Quick-jump to section navigation */
 div.topnav {
-    position: sticky;
-    top: 0;
+    color:grey;
     z-index: 1;
     background-color: white;
     overflow: hidden;
     width: max-content;
     max-width: 100%;
 }
-
 .topnav a {
     float: left;
-    color:grey;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
     display: block;
 }
-
 .topnav a:hover {
     background-color: whitesmoke;
     color: black;
+}
+@media (prefers-color-scheme: dark) {
+    div.topnav { background-color: #372F2C; color: #DDD; }
+}
+
+/* Back-to-top button */
+.button {
+    border: 2px solid #ff5050;
+    color: #ff5050;
+    background-color: #ffffff;
+    align-self: baseline;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: fixed;
+    bottom: 1em;
+}
+.button:hover {
+    color: #ffffff;
+    transition-timing-function: ease-in;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #ff5050;
+}
+
+/* Margin-Sections */
+p + .h4-spacer {
+    margin-top: 2.2rem;
+}
+h4 {
+    display: none;
+    font-size: 1.4em;
+    margin-bottom: 1rem;
+}
+h4 + p { margin-top: 0; }
+@media (max-width: 760px) {
+    .h4-spacer { display: none; }
+    h4 { display: inherit; }
+    h4 + p>.marginnote, h4 + p>.sidenote {
+        display: none;
+    }
 }
 
 /* Override original Tufte CSS */
@@ -47,15 +93,32 @@ p {
     -ms-hyphens: auto;
 }
 
-h2, h3 {
+h3 { line-height: inherit; }
+
+h2, h3, h4 {
     font-style: unset;
+    margin-top: 2.5rem;
 }
+a:link, .tufte-underline, .hover-tufte-underline:hover {
+    /*background: unset;*/
+    text-shadow: unset;
+}
+
+/*
+  You can choose between two modes.
+  The former will display all margin notes in-text.
+  The latter will add a toggle button.
+*/
 
 @media (max-width: 760px) {
     .sidenote, .marginnote {
-        /* for now, until toggle works */
         display: block;
         width: 90%;
-        margin: 2rem 5%;
+        margin: 1rem 5%;
     }
 }
+/*
+label.mtoggle::before { content: unset; }
+@media (max-width: 760px) {
+    label.mtoggle::before { content: ' ⊕'; }
+}*/

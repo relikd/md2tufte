@@ -1,8 +1,7 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
    TITLE : md2tufte
-SUBTITLE : Exemplary overview document
+SUBTITLE : Exemplary overview document \~·\~ v2021-09-10
   AUTHOR : relikd
- VERSION : v20210704
      TOC : @@@
 <a href="#features">Features</a>
 <a href="#requirements">Requirements</a>
@@ -22,7 +21,9 @@ A HTML version of this document using a responsive layout for small screens is a
 ==@
 was created with [`md2tufte`](https://github.com/relikd/md2tufte) – a tool which takes a markdown file as input and returns html and pdf as output.
 It supports the usual markdown syntax and is augmented with a substitution header.
-To place something in the margin, use the `@ ==` syntax.
+To place something in the margin, use the `@ ==` syntax.@==
+[multi line, super long name desc with various other words than these mere few you saw in the beginning!](multi-line-url)
+==@
 
 For further examples, refer to the README file.
 You can use in-document references.@==
