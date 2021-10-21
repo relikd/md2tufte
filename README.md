@@ -37,8 +37,8 @@ The format is mostly markdown, except for these modifications:
   - multi-line content allowed.
   - the prefix `@=latex=` will display its content in pdf only. There is no html-prefix equivalent.
 
-- Use `####` to create paragraph like sections. These sections are displayed in the margin. Like an index for quick reference. In mobile html they are normal `h4` headings.
-  - Of course `#`, `##`, and `###` are translated to `h1` to `h3` headings
+- Use `####` to create paragraphs and `#####` for paragraph-like sections. The latter are displayed in the margin. Like an index for quick reference. In mobile html they are normal `h5` headings.
+  - Of course `#`, `##`, and `###` translate to `h1` to `h3` headings.
 
 - You can add a reference-id to a title by adding `{#label}` after the title, e.g., `## Title {#title}`
   - other than that, all titles have implicit labels where spaces are replaced with dashes `My Title` becomes `my-title`

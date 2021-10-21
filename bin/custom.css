@@ -1,6 +1,7 @@
 @font-face { font-family: 'Roboto'; src: url(fonts/Roboto-Regular.otf); }  /* only h1-6, thus no italic */
 @font-face { font-family: 'Piazzolla'; src: url(fonts/Piazzolla.ttf); }
 @font-face { font-family: 'Piazzolla'; font-style: italic; src: url(fonts/Piazzolla-Italic.ttf); }
+@font-face { font-family: 'Iosevka'; src: url(fonts/iosevka-ss04-regular.ttf); }
 
 body {
   font-family: Piazzolla, Helvetica Neue, sans-serif;
@@ -9,6 +10,11 @@ body {
 b,strong { font-weight: 600; }
 h1,h2,h3,h4,h5,h6,.topnav {
   font-family: Roboto, Helvetica Neue, sans-serif;
+}
+pre, pre > code {
+  margin-left: 0.1em;
+  font-family: Iosevka, Menlo, Consolas, Courier, monospace;
+  font-size: 1rem;
 }
 #subtitle { margin-top: inherit; }
 @media (prefers-color-scheme: dark) {
@@ -68,22 +74,27 @@ div.topnav {
 }
 
 /* Margin-Sections */
-p + .h4-spacer {
+p + .h5-spacer {
     margin-top: 2.2rem;
 }
-h4 {
-    display: none;
+h4,h5 {
     font-size: 1.4em;
     margin-bottom: 1rem;
 }
-h4 + p { margin-top: 0; }
+h4 + p, h5 + p { margin-top: 0; }
+h5 { display: none; }
 @media (max-width: 760px) {
-    .h4-spacer { display: none; }
-    h4 { display: inherit; }
-    h4 + p>.marginnote, h4 + p>.sidenote {
+    .h5-spacer { display: none; }
+    h5 { display: inherit; }
+    h5 + p>.marginnote, h5 + p>.sidenote {
         display: none;
     }
 }
+
+/* Support for Checkbox-Lists */
+input[type='checkbox'] { width: 1.4em; height: 1.4em; margin: 0 .5em 0 0; }
+li.checkbox { text-indent: -1.4em; }
+li.checkbox::marker { content: ''; }
 
 /* Override original Tufte CSS */
 

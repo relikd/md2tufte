@@ -3,8 +3,8 @@ s?\\,?<span style="white-space:nowrap">\&thinsp;</span>?g
 s?\\~?\&nbsp;?g
 
 # Margin note
-s?####[[:space:]]*\(.*\)$?<p class="h4-spacer"></p>\
-#### \1\
+s?#####[[:space:]]*\(.*\)$?<p class="h5-spacer"></p>\
+##### \1\
 @== \1 ==@?g
 
 # Use this to show margin notes inline

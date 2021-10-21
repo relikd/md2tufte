@@ -15,6 +15,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage{mathabx}
 
 \setmainfont[
   Path           = fonts/,
@@ -31,6 +32,7 @@
 ]{Roboto-Regular}
 \setmonofont[
   Path           = fonts/,
+  Scale          = 0.8,
   BoldFont       = {iosevka-ss04-bold},
   ItalicFont     = {iosevka-ss04-italic},
   BoldItalicFont = {iosevka-ss04-bolditalic}
@@ -60,6 +62,8 @@
 \def\tightlist{}
 \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
 \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+
+\renewcommand\subsubsection\paragraph
 
 \newcommand{\marginsection}[1]{
   \if@noskipsec\leavevmode\fi \par
