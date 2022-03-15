@@ -1,0 +1,11 @@
+bin/tufte.css linguist-vendored
+bin/et-book/** linguist-vendored
+bin/fonts/** linguist-vendored
+
+bin/*.html linguist-generated
+/*.html linguist-generated
+/*.pdf linguist-generated
+
+bin/custom.css -linguist-detectable
+src/*.tex -linguist-detectable
+src/*.html -linguist-detectable
